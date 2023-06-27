@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UrlShorterController;
 use App\Http\Middleware\ValidateToken;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/short-urls', function () {
-    return view('welcome');
-})->middleware(ValidateToken::class);
+Route::post('/short-urls', [UrlShorterController::class, 'shortUrl'])
+->middleware(ValidateToken::class);
