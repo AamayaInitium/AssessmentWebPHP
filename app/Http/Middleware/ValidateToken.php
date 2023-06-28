@@ -25,7 +25,7 @@ class ValidateToken
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $result = $this->validateTokenSyntaxAction->validate($request);
+        $result = $this->validateTokenSyntaxAction->validate($request->bearerToken());
 
         if(!$result){
             return response()->json(['message' => 'unauthorized'], 403);

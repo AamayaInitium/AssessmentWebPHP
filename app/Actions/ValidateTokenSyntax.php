@@ -14,14 +14,13 @@ class ValidateTokenSyntax {
 	/**
 	 * Validate if the bearer token has the expected syntax
 	 *
-	 * @param (\Illuminate\Http\Request) $request request to validate bearer token
+	 * @param string bearer token
 	 * 
 	 * @return bool result of the validation
 	 */
-	public function validate(Request $request) : bool{
+	public function validate(string $token) : bool{
 		try {
 			Log::info(__CLASS__.' '.__FUNCTION__.' Start to validate bearer token');
-			$token = $request->bearerToken();
 			$validation = true;
 			$openingTags = ['{', '[', '('];
 
